@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Sales Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <nav>
+        <h1>Food Sale Manager</h1>
+    </nav>
+
+    <main>
+        <div class="controls" >
+            <input type="text" id="searchInput" placeholder="ค้นหา..." />
+            <input type="date" id="startDate" />
+            <input type="date" id="endDate" />
+            <button id="filterBtn">ค้นหา</button>
+            <button id="addSaleBtn" >เพิ่มรายการขาย</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th data-field="OrderDate">OrderDate</th>
+                    <th data-field="Region">Region</th>
+                    <th data-field="City">City</th>
+                    <th data-field="Category">Category</th>
+                    <th data-field="Product">Product</th>
+                    <th data-field="Quantity">Quantity</th>
+                    <th data-field="UnitPrice">UnitPrice</th>
+                    <th data-field="TotalPrice">TotalPrice</th>
+                    <th class="actions">แก้ไข</th>
+                    <th class="actions">ลบ</th>
+                </tr>
+            </thead>
+            <tbody id="salesTableBody"></tbody>
+        </table>
+    </main>
+    <!-- popup update -->
+    <div class="form-container">
+        <h2>Edit Sales Record</h2>
+        <form id="editForm">
+            <label>Order Date</label>
+            <input type="date" id="orderDateEdit" required />
+
+            <label>Region</label>
+            <input type="text" id="regionEdit" required />
+
+            <label>City</label>
+            <input type="text" id="cityEdit" required />
+
+            <label>Category</label>
+            <input type="text" id="categoryEdit" required />
+
+            <label>Product</label>
+            <input type="text" id="productEdit" required />
+
+            <label>Quantity</label>
+            <input type="number" id="quantityEdit" required />
+
+            <label>Unit Price</label>
+            <input type="number" id="unitPriceEdit" step="0.01" required />
+
+            <label>Total Price</label>
+            <input type="number" id="totalPriceEdit" step="0.01" required />
+
+            <button type="submit">บันทึก</button>
+            <button type="button" id="cancelBtn">ยกเลิก</button>
+        </form>
+        <div id="statusMsg"></div>
+    </div>
+
+    <!-- popup insert -->
+    <div id="popupForm" class="popup-form" style="display:none;">
+        <div class="popup-content">
+            <h2>เพิ่มรายการขายใหม่</h2>
+            <form id="addSaleForm">
+                <label>Order Date</label>
+                <input type="date" id="orderDateAdd" required />
+
+                <label>Region</label>
+                <input type="text" id="regionAdd" required />
+
+                <label>City</label>
+                <input type="text" id="cityAdd" required />
+
+                <label>Category</label>
+                <input type="text" id="categoryAdd" required />
+
+                <label>Product</label>
+                <input type="text" id="productAdd" required />
+
+                <label>Quantity</label>
+                <input type="number" id="quantityAdd" required />
+
+                <label>Unit Price</label>
+                <input type="number" step="0.01" id="unitPriceAdd" required />
+
+                <label>Total Price</label>
+                <input type="number" step="0.01" id="totalPriceAdd" required />
+
+                <button type="submit">เพิ่ม</button>
+                <button type="button" id="cancelAddBtn">ยกเลิก</button>
+            </form>
+            <div id="addStatusMsg"></div>
+        </div>
+    </div>
+
+</body>
+</html>
